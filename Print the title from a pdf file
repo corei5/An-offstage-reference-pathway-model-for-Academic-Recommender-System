@@ -1,0 +1,6 @@
+from pyPdf import PdfFileWriter, PdfFileReader
+
+output = PdfFileWriter()
+input1 = PdfFileReader(file("a.pdf", "rb"))
+
+print "title = %s" % (input1.getDocumentInfo().title)
