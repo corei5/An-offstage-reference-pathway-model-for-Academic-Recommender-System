@@ -1,0 +1,22 @@
+import nltk
+from textblob import TextBlob
+
+txt = """Natural language processing (NLP) is a field of computer science, artificial intelligence, and computational linguistics concerned with the inter
+actions between computers and human (natural) languages."""
+
+blob = TextBlob(txt)
+sentence = blob.sentences[0]
+
+for word, pos in sentence.tags:
+    if pos == 'VB':
+	    print(word.pluralize())
+    if pos == 'VBD':
+	    print(word.pluralize())
+    if pos == 'VBG':
+	    print(word.pluralize())
+    if pos == 'VBN':
+	    print(word.pluralize())
+    if pos == 'VBP':
+	    print(word.pluralize())
+    if pos == 'VBZ':
+	    print(word.pluralize())
