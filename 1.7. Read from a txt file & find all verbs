@@ -1,0 +1,23 @@
+import nltk
+from nltk import pos_tag, word_tokenize
+
+
+f = open('GWBush.txt', 'rU').read()
+
+sentence = pos_tag(word_tokenize(f))
+#print(sentence)
+
+
+for word, pos in sentence:
+    if pos == 'VB':
+	    print(word)
+    if pos == 'VBD':
+	    print(word)
+    if pos == 'VBG':
+	    print(word)
+    if pos == 'VBN':
+	    print(word)
+    if pos == 'VBP':
+	    print(word)
+    if pos == 'VBZ':
+	    print(word)
