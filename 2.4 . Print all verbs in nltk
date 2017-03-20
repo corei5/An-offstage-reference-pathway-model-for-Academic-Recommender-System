@@ -1,0 +1,7 @@
+import nltk
+
+wsj = nltk.corpus.treebank.tagged_words()
+cfd2 = nltk.ConditionalFreqDist((tag, word) for (word, tag) in wsj)
+
+
+print(list(cfd2['VBN']))
