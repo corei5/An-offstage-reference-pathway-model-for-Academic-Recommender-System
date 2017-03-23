@@ -1,0 +1,86 @@
+import nltk
+import textract
+import re
+from nltk import pos_tag, word_tokenize
+
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfpage import PDFPage
+from cStringIO import StringIO
+
+
+def find_number(num):
+    if num == '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9':
+        return True
+    else:
+        return False
+
+
+
+
+def convert_pdf_to_txt(path):
+    rsrcmgr = PDFResourceManager()
+    retstr = StringIO()
+    codec = 'utf-8'
+    laparams = LAParams()
+    device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
+    fp = file(path, 'rb')
+    interpreter = PDFPageInterpreter(rsrcmgr, device)
+    password = ""
+    maxpages = 0
+    caching = True
+    pagenos = set()
+
+    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password, caching=caching,
+                                  check_extractable=True):
+        interpreter.process_page(page)
+
+    text = retstr.getvalue()
+
+    fp.close()
+    device.close()
+    retstr.close()
+    fo = open("output.txt", "wb")
+    fo.write(text)
+    fo.close()
+    return text
+
+
+convert_pdf_to_txt('exa.pdf')
+f = open('output.txt', 'rU').read()
+
+# print(f)
+
+f1 = f.decode('utf-8')
+
+sentence = pos_tag(word_tokenize(f1))
+
+# print(sentence)
+
+
+# for word, pos in sentence:
+#   if pos == 'VB':
+#    print(word.encode("utf-8"))
+# if pos == 'VBD':
+#   print(word.encode("utf-8"))
+# if pos == 'VBG':
+#   print(word.encode("utf-8"))
+# if pos == 'VBN':
+#   print(word.encode("utf-8"))
+# if pos == 'VBP':
+#   print(word.encode("utf-8"))
+# if pos == 'VBZ':
+#   print(word.encode("utf-8"))
+
+
+
+with open('output.txt', 'r') as f:
+    for line in f:
+        for word in line.split():
+            if any(str.isdigit(i) for i in word) and len(word)>2 and find_number(word[len(word)-1])==True and find_number(word[len(word)-2]) == True and find_number(word[0]) == False :
+                print(word[0])
+                with open('aa.txt', 'a') as out:
+                    out.write(word + '\n')
+
+
