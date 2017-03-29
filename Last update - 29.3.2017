@@ -113,8 +113,90 @@ for word, pos in sentence:
      #   print(word.encode("utf-8"))
         with open('verb.txt', 'a') as out:
             out.write(word.encode("utf-8") + '\n')
+    if pos == 'VD':
+     #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+    if pos == 'VDD':
+     #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+    if pos == 'VDG':
+     #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+    if pos == 'VDN':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+    if pos == 'VDZ':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
 
+    if pos == 'VDP':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
 
+    if pos == 'VH':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VHD':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VHG':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VHN':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VHZ':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+    if pos == 'VHP':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VV':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VVD':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VVG':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VVN':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VVP':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
+
+    if pos == 'VVZ':
+        #   print(word.encode("utf-8"))
+        with open('verb.txt', 'a') as out:
+            out.write(word.encode("utf-8") + '\n')
 
 with open('output.txt', 'r') as f:
     for line in f:
