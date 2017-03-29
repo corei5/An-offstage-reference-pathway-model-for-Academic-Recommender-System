@@ -9,6 +9,12 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
 
+def find_string(string):
+    string_list = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    if string.lower() in string_list:
+        return True
+    else:
+        return False
 
 def find_number(num):
     num_list = ['1','2','3','4','5','6','7','8','9']
@@ -24,12 +30,25 @@ def find_fastsine(sine):
     else:
         return False
 
-def remove_secondbra(word):
+def find_lastsine(sine):
+    sine_list = [')','}',']']
+    if sine in sine_list:
+        return True
+    else:
+        return False
 
+def remove_secondbra(word):
         if '{' in word:
             return True
         else:
             return False
+
+
+def remove_secondbra_close(word):
+    if '}' in word:
+        return True
+    else:
+        return False
 
 def convert_pdf_to_txt(path):
     rsrcmgr = PDFResourceManager()
@@ -44,8 +63,7 @@ def convert_pdf_to_txt(path):
     caching = True
     pagenos = set()
 
-    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password, caching=caching,
-                                  check_extractable=True):
+    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password, caching=caching,check_extractable=True):
         interpreter.process_page(page)
 
     text = retstr.getvalue()
@@ -101,9 +119,7 @@ for word, pos in sentence:
 with open('output.txt', 'r') as f:
     for line in f:
         for word in line.split():
-            if any(str.isdigit(i) for i in word) and len(word) > 2 and len(word) < 20 and (find_number(word[0]) == False or word[len(word)-1]=='.')  and find_number(word[len(word)-4])==False  and find_fastsine(word)==False and word[0] != '[' and remove_secondbra(word)==False:
+            if any(str.isdigit(i) for i in word) and len(word) > 2 and len(word) < 20 and (find_number(word[0]) == False or word[len(word)-1]=='.')  and find_number(word[len(word)-4])==False  and find_fastsine(word)==False and word[0] != '[' and remove_secondbra(word)==False and remove_secondbra_close(word)==False and find_string(word[1])==True :
                # print(word[0])
                 with open('aa.txt', 'a') as out:
                     out.write(word + '\n')
-
-
